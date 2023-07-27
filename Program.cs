@@ -4,7 +4,10 @@
     {
         public static void Main()
         {
-            System.Console.WriteLine("Hola Mundo");
+            var FabricaDePersonajes = new FabricaDePersonajes();
+            var miPersonaje = FabricaDePersonajes.crearPersonajeAleatorio();
+            miPersonaje.MostrarDatos();
+            miPersonaje.MostrarCaracteristicas();
         }
     }
 }
