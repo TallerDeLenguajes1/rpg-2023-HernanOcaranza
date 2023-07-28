@@ -1,17 +1,18 @@
+using Helpers;
+
 namespace RPG
 {
     public class FabricaDePersonajes
     {
-        private string[] TiposDePersonajes = { "Orco", "Mago", "Elfo", "Cazador", "Druida" };
-        private string[] NombresDePersonajes = { "Lifestealer", "Templar Assassin", "Bounty Hunter", "Drow Ranger" };
-        private string[] ApodosDePersonajes = { "Naix", "Lanyana", "Gondar", "Drow" };
+        private string[] TiposDePersonajes = { "Orco", "Mago", "Elfo", "Cazador", "Druida", "Paladin", "Guerrero" };
+        private string[] NombresDePersonajes = { "Lifestealer", "Templar Assassin", "Mortis", "Gekko", "Bounty Hunter", "Drow Ranger", "Timbersaw", "Killjoy" };
+        private string[] ApodosDePersonajes = { "Naix", "Lanyana", "Gondar", "Drow", "Pam", "Tim", "Jonh", "Oka" };
         public Personaje crearPersonajeAleatorio()
         {
             var r = new Random();
             var tipo = TiposDePersonajes[r.Next(TiposDePersonajes.Length)];
-            var nombreId = r.Next(NombresDePersonajes.Length);
-            var nombre = NombresDePersonajes[nombreId];
-            var apodo = ApodosDePersonajes[nombreId];
+            var nombre = NombresDePersonajes[r.Next(NombresDePersonajes.Length)];
+            var apodo = ApodosDePersonajes[r.Next(ApodosDePersonajes.Length)];
             var fechaNacimiento = new DateTime(1600, 1, 1).AddDays(r.Next(109500));
             var velocidad = r.Next(1, 10);
             var destreza = r.Next(1, 5);

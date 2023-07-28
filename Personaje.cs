@@ -13,9 +13,9 @@ namespace RPG
         public int Fuerza { get; set; }
         public int Nivel { get; set; }
         public int Armadura { get; set; }
-        public int Salud { get; set; }
+        public double Salud { get; set; }
 
-        public Personaje(string tipo, string nombre, string apodo, DateTime fechaNacimiento, int velocidad, int destreza, int fuerza, int nivel, int armadura, int salud)
+        public Personaje(string tipo, string nombre, string apodo, DateTime fechaNacimiento, int velocidad, int destreza, int fuerza, int nivel, int armadura, double salud)
         {
             Tipo = tipo;
             Nombre = nombre;
