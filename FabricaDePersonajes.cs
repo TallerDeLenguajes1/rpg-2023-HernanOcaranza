@@ -3,10 +3,17 @@ using Helpers;
 namespace RPG
 {
     public class FabricaDePersonajes
-    {
-        private string[] TiposDePersonajes = { "Orco", "Mago", "Elfo", "Cazador", "Druida", "Paladin", "Guerrero" };
-        private string[] NombresDePersonajes = { "Lifestealer", "Templar Assassin", "Mortis", "Gekko", "Bounty Hunter", "Drow Ranger", "Timbersaw", "Killjoy" };
-        private string[] ApodosDePersonajes = { "Naix", "Lanyana", "Gondar", "Drow", "Pam", "Tim", "Jonh", "Oka" };
+    {                
+        private string[] TiposDePersonajes;
+        private string[] NombresDePersonajes;
+        private string[] ApodosDePersonajes;
+
+        public FabricaDePersonajes()
+        {
+            TiposDePersonajes = PersonajesApi.GetTiposPersonajes();
+            NombresDePersonajes = PersonajesApi.GetNombresPersonajesAsync().Result;
+            ApodosDePersonajes = PersonajesApi.GetApodosPersonajes();
+        }
         public Personaje crearPersonajeAleatorio()
         {
             var r = new Random();

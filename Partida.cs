@@ -2,7 +2,7 @@ namespace RPG
 {
     public class Partida
     {
-        public List<Personaje> Competidores { get; set; }
+        public List<Personaje> Competidores {get; set;} 
 
         public Partida(List<Personaje> competidores)
         {
@@ -18,13 +18,12 @@ namespace RPG
             var defensa = defensor.Armadura * defensor.Velocidad;
             return ((ataque * efectividad) - defensa) / constAjuste;
         }
+
         public Personaje combate(Personaje p1, Personaje p2)
         {
             bool banderaTurno = true;
-            double danioProvocado;
-            var saludInicialP1 = p1.Salud;
-            var saludInicialP2 = p2.Salud;
-            while (p1.Salud > 0 && p2.Salud > 0)
+            double danioProvocado;            
+            while (p1.estaVivo() && p2.estaVivo())
             {
                 if (banderaTurno)
                 {
@@ -39,22 +38,27 @@ namespace RPG
                 banderaTurno = !banderaTurno;
             }
             System.Console.WriteLine(" ");
-            if (p1.Salud > 0)
+            if (p1.estaVivo())
             {
-                p1.Salud = saludInicialP1 + 10;
-                p1.Armadura += 5;
+                BonificarPersonaje(p1);
                 System.Console.WriteLine("Jugador eliminado:");
                 p2.MostrarDatos();
                 return p1;
             }
             else
             {
-                p2.Salud = saludInicialP2 + 10;
-                p2.Armadura += 5;
+                BonificarPersonaje(p2);
                 System.Console.WriteLine("Jugador eliminado:");
                 p1.MostrarDatos();
                 return p2;
             }
+        }
+
+        private void BonificarPersonaje(Personaje p)
+        {
+            p.Nivel += 1;
+            p.Armadura += 5;
+            p.Salud = 100;
         }
     }
 }

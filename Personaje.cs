@@ -50,5 +50,10 @@ namespace RPG
             System.Console.WriteLine($"Armadura: {Armadura}");
             System.Console.WriteLine($"Salud: {Salud}");
         }
+
+        public bool estaVivo()
+        {
+            return Salud > 0;
+        }
     }
 }

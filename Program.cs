@@ -8,6 +8,7 @@
             var listaPersonajes = new List<Personaje>();
             var archivoPersonajes = new PersonajesJson();
             var nombreArchivo = "./personajes.json";
+            const int CANTIDAD_PERSONAJES = 10;
 
             if (archivoPersonajes.Existe(nombreArchivo))
             {
@@ -16,7 +17,7 @@
             else
             {
                 var FabricaDePersonajes = new FabricaDePersonajes();
-                for (int i = 0; i < 10; i++)
+                for (int i = 0; i < CANTIDAD_PERSONAJES; i++)
                 {
                     listaPersonajes.Add(FabricaDePersonajes.crearPersonajeAleatorio());
                 }
